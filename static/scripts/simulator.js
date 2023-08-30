@@ -872,7 +872,7 @@ class Simulation {
         this.posDataPoints = [[], []];
         this.velDataPoints = [[], []];
         this.accelDataPoints = [[], []];
-        this.energyDataPoints = [];
+        // this.energyDataPoints = [];
     }
 
     reset(setPos = true) {
@@ -1003,10 +1003,12 @@ class Simulation {
             chart.options.data[0].dataPoints = this.accelDataPoints[index];
             chart.title.set("text", this.plotXY + " acceleration over time (ms-2");
         }
+        /*
         else if (this.plotType == "Energy") {
             chart.options.data[0].dataPoints = this.energyDataPoints;
             chart.title.set("text", "Energy over time (J)");
         }
+        */
     }
 
     updateChart() {
@@ -1030,7 +1032,7 @@ class Simulation {
                 this.velDataPoints[i].splice(0, deleteCount)
                 this.accelDataPoints[i].splice(0, deleteCount)
             }
-            this.energyDataPoints.splice(0, deleteCount);
+            // this.energyDataPoints.splice(0, deleteCount);
         }
     }
 
@@ -1043,7 +1045,7 @@ class Simulation {
         this.posDataPoints[1].push({x: runtime, y: this.ball.getDisplayY()});
         this.velDataPoints[1].push({x: runtime, y: this.ball.getDisplayVelocityY()});
         this.accelDataPoints[1].push({x: runtime, y: this.ball.getDisplayAccelerationY()});
-        this.energyDataPoints.push({x: runtime, y: this.ball.getEnergy()});
+        // this.energyDataPoints.push({x: runtime, y: this.ball.getEnergy()});
     }
 
     updateData() {
